@@ -1,6 +1,6 @@
 
-#I aim in this experiment to write a pair of functions, which these names are makeCachematrix and cacheSolve.
-#makeCachematrix is a function which it creats an special matrix object that can cache its inverse for the input.
+## A pair of functions that cache the inverse of a matrix.
+## This function creates a special "matrix" object that can cache its inverse.
 
 
 makeCachematrix<-function(x=matrix()){
@@ -14,9 +14,11 @@ setinver<-function(inverse) inver<-inverse
 getinver<-function()inver
 list(set=set, get=get,setinver=setinver, getinver=getinver)
 }
-
+2.cacheSolve
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 cacheSolve<-function(x,...) {
-    inver<-x$getinver
+## Return a matrix that is the inverse of 'x'
+inver<-x$getinver
     if(!is.null(inver)){
        message('Getting data')
     return(inver)}
@@ -26,15 +28,3 @@ inver<-solve(dat,...)
 x$settinver(inver)
 inver
 }
-
-##And finally i want to checking the program
-
-#testm<-matrix(rnorm(20),4,5)
-#testm1<-makeCachematrix(testm)
-#cacheSolve(testm1)
-
-#      [,1]       [,2]       [,3]       [,4]        [,5]
-#[1,] -0.5051440 -2.6418632  0.8311979 -0.6896341 -0.09977954
-#[2,]  0.5576140  1.6854776  0.8523923  0.8598324 -0.07137730
-#[3,] -0.1564024 -0.5990069 -1.0906549  0.2798501  0.25353139
-#[4,]  0.4836709  0.9089425 -0.4191692 -0.9259044 -0.22128015
